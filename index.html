@@ -12,14 +12,13 @@
 
 <body>
     <div id="app">
-        <h1>Contador</h1>
-        <h2 :class="number <= 0 ? 'outStock' : ''" >{{number}}</h2>
-        <button @click="addNumber">Incremento</button>
-        <button :style="number <= 0 ? 'border: none' : ''" @click="subNumber" :disabled="number <= 0">Decremento</button>
+        <h1>Products</h1>
+        <product></product>
     </div>
 
     <!-- Import App Vue -->
     <script src="main.js"></script>
+    <script src="./components/Product.js"></script>
     <!-- Mount App vue on HTML Page -->
     <script>app.mount('#app')</script>
 </body>

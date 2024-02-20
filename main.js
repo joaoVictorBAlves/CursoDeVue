@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            number: 5
+            number: 5,
         }
     },
     methods: {
@@ -10,6 +10,11 @@ const app = Vue.createApp({
         },
         subNumber() {
             this.number--;
+        }
+    },
+    computed: {
+        outOfStock() {
+            return this.number < 1;
         }
     }
 });

@@ -1,7 +1,10 @@
 /* FILEPATH: /c:/Users/joaov/OneDrive/Documentos/VUE_TECH_DOJO/style.css */
 
 /* Reset default styles */
-body, h1, h2, button {
+body,
+h1,
+h2,
+button {
   margin: 0;
   padding: 0;
 }
@@ -36,4 +39,12 @@ button {
 
 .outStock {
   color: #f44336;
+}
+
+.product {
+  width: 200px;
+  align-items: center;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
