@@ -30,6 +30,12 @@ h2 {
   margin-bottom: 16px;
 }
 
+.products{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 /* Style the buttons */
 button {
   padding: 8px 16px;
@@ -47,4 +53,25 @@ button {
   margin-bottom: 8px;
   border: 1px solid #ccc;
   padding: 10px;
+}
+
+.cart-container {
+  position: fixed;
+  top: 20px; /* Ajuste conforme desejado */
+  right: 20px; /* Ajuste conforme desejado */
+  width: 50px; /* Ajuste conforme desejado */
+  height: 50px; /* Ajuste conforme desejado */
+  background-color: #ffffff; /* Cor de fundo */
+  border: 1px solid #ccc; /* Borda */
+  padding: 10px; /* Espaçamento interno */
+}
+
+.cart-container h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-container p {
+  margin-bottom: 0;
 }
