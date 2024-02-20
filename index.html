@@ -12,6 +12,13 @@
 <body>
     <div id="app">
         <h1>{{message}}</h1>
+        <img :src="imgPath" width="400" height="400">
+        <p>Meia de cor: {{ color }}</p>
+        <!-- Diretivas para renderização condicional -->
+        <span v-if="quantity > 0 && quantity > 5">à venda</span>
+        <span v-else-if="quantity > 0 && quantity <= 5">últimas {{quantity}} unidades</span>
+        <span v-else>em falta</span>
+
     </div>
 
     <!-- Import App Vue -->

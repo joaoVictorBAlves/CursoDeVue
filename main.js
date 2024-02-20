@@ -1,7 +1,10 @@
 const app = Vue.createApp({
     data() {
         return {
-            message: 'Hello World!'
+            message: 'Venda de meias!',
+            imgPath: './assets/image2.jpg',
+            color: 'Azul',
+            quantity: 2,
         }
     }
 });
