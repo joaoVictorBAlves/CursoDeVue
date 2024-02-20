@@ -1,7 +1,15 @@
 const app = Vue.createApp({
     data() {
         return {
-            fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+            number: 0
+        }
+    },
+    methods: {
+        addNumber() {
+            this.number++;
+        },
+        subNumber() {
+            this.number--;
         }
     }
 });

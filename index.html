@@ -11,12 +11,10 @@
 
 <body>
     <div id="app">
-        <h1>Frutas</h1>
-        <ul>
-            <li v-for="(fruit, index) in fruits" :key="index">
-                #{{index + 1}} {{ fruit }}
-            </li>
-        </ul>
+        <h1>Contador</h1>
+        <h2>{{number}}</h2>
+        <button @click="addNumber">Aumentar</button>
+        <button @click="subNumber">Diminuir</button>
     </div>
 
     <!-- Import App Vue -->
