@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            number: 0
+            number: 5
         }
     },
     methods: {

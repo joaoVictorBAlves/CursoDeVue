@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Import Vue Lib -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>App vue</title>
 </head>
 
 <body>
     <div id="app">
         <h1>Contador</h1>
-        <h2>{{number}}</h2>
-        <button @click="addNumber">Aumentar</button>
-        <button @click="subNumber">Diminuir</button>
+        <h2 :class="number <= 0 ? 'outStock' : ''" >{{number}}</h2>
+        <button @click="addNumber">Incremento</button>
+        <button :style="number <= 0 ? 'border: none' : ''" @click="subNumber" :disabled="number <= 0">Decremento</button>
     </div>
 
     <!-- Import App Vue -->
