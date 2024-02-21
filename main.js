@@ -2,16 +2,15 @@ const app = Vue.createApp({
     data() {
         return {
             cart: 0,
-            products: [
-                { name: 'Shoes', brand: 'Nike', price: 100, qtd: 10 },
-                { name: 'Socks', brand: 'Vue Mastery', price: 10, qtd: 0 },
-                { name: 'Pants', brand: 'Adidas', price: 50, qtd: 5 },
-            ],
+            task: '',
+            tasks: [],
         }
     },
     methods: {
-        updateCart() {
-            this.cart += 1
-        }
+        addTask() {
+            this.tasks.push(this.task);
+            this.task = '';
+        },
     },
 });
+
