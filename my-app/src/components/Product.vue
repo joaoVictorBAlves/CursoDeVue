@@ -5,15 +5,15 @@ const props = defineProps({
     product: Object
 });
 
+const emits = defineEmits(['buy']);
+
 const isOutOfStock = computed(() => {
     return props.product.qtd === 0;
 });
 
 function handleClick() {
     if (props.product.qtd > 0) {
-        // props.product.qtd--;
-        // Não é possível alterar um props diretamente no componente filho
-        // Para alterar o valor de um props, é necessário emitir um evento para o componente pai
+        emits('buy', props.product);
     }
 }
 </script>

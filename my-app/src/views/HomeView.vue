@@ -19,6 +19,11 @@ const products = ref([
   { id: 10, name: 'Produto 10', description: 'Descrição do produto 10', price: 1000, qtd: 10 },
 ]);
 
+function buyProduct(product) {
+  const index = products.value.findIndex(p => p.id === product.id);
+  products.value[index].qtd--;
+}
+
 </script>
 
 <template>
@@ -30,7 +35,7 @@ const products = ref([
       <h1>{{ titulo }}</h1>
       <br>
       <div class="products">
-        <Product v-for="product in products" :key="product.id" :product="product" />
+        <Product v-for="product in products" :key="product.id" :product="product" @buy="buyProduct" />
       </div>
       <br>
       <p>
