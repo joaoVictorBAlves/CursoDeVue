@@ -3,7 +3,7 @@
 import Navbar from '@/components/Navbar.vue';
 import Product from '@/components/Product.vue';
 
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 const titulo = ref('Página Inicial');
 
 const products = ref([
@@ -23,6 +23,14 @@ function buyProduct(product) {
   const index = products.value.findIndex(p => p.id === product.id);
   products.value[index].qtd--;
 }
+
+onMounted(() => {
+  alert("Seja bem vindo a nossa loja :)")
+});
+
+onUnmounted(() => {
+  console.log('HomeView desmontada');
+});
 
 </script>
 
