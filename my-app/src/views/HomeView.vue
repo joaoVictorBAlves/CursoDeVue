@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+let msg = 'Vamos aprender Vue 3'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>Olá mundo</h1>
+    <p>{{ msg }}</p>
   </main>
 </template>
