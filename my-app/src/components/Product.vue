@@ -48,4 +48,14 @@ function handleClick() {
 .outStock {
     border: solid 1px rgb(239, 87, 87);
 }
+
+button {
+    padding-inline: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 </style>

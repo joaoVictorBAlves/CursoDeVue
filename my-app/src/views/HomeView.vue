@@ -15,14 +15,6 @@ const products = ref([
   { id: 8, name: 'Produto 8', description: 'Descrição do produto 8', price: 800, qtd: 15 },
 ]);
 const productSoldEffect = ref(false);
-// Effects
-onMounted(() => {
-  alert("Seja bem vindo a nossa loja :)")
-});
-
-onUnmounted(() => {
-  console.log('HomeView desmontada');
-});
 
 watch(productSoldEffect, () => {
   if (productSoldEffect.value) {
