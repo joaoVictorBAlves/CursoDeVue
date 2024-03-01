@@ -1,16 +1,18 @@
 <script setup>
 import { defineProps, computed } from 'vue';
-
+// Props
 const props = defineProps({
     product: Object
 });
-
+// Emits
 const emits = defineEmits(['buy']);
 
+// Computed
 const isOutOfStock = computed(() => {
     return props.product.qtd === 0;
 });
 
+// functions
 function handleClick() {
     if (props.product.qtd > 0) {
         emits('buy', props.product);
