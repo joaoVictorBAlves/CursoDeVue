@@ -19,6 +19,9 @@ defineProps({
             <li>
                 <router-link :class="{ active: page === 'contact' }" to="/contact">Contact</router-link>
             </li>
+            <li>
+                <router-link :class="{ active: page === 'post' }" to="/postProducts">Post Product</router-link>
+            </li>
         </ul>
     </nav>
 </template>

@@ -14,7 +14,6 @@ const isOutOfStock = computed(() => {
     return props.product.qtd === 0;
 });
 
-// functions
 function handleClick() {
     if (props.product.qtd > 0) {
         emits('buy', props.product);

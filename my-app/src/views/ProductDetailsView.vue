@@ -1,26 +1,19 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue';
-import { computed, defineProps, ref } from 'vue';
-
+import { defineProps, onMounted, ref } from 'vue';
+import ProductsService from '@/services/ProductsService';
 
 const props = defineProps(['id']);
 
-const products = ref([
-    { id: 1, name: 'Produto 1', description: 'Descrição do produto 1', price: 100, qtd: 10 },
-    { id: 2, name: 'Produto 2', description: 'Descrição do produto 2', price: 200, qtd: 20 },
-    { id: 3, name: 'Produto 3', description: 'Descrição do produto 3', price: 300, qtd: 0 },
-    { id: 4, name: 'Produto 4', description: 'Descrição do produto 4', price: 400, qtd: 25 },
-    { id: 6, name: 'Produto 6', description: 'Descrição do produto 6', price: 600, qtd: 0 },
-    { id: 8, name: 'Produto 8', description: 'Descrição do produto 8', price: 800, qtd: 15 },
-]);
-
 console.log(props.id);
-const product = computed(() => {
-    return products.value.find(p => p.id == props.id);
+const product = ref({});
 
+onMounted(() => {
+    ProductsService.getProduct(props.id).then((response) => {
+        product.value = response.data;
+    });
 });
 
-// console.log(product);
 </script>
 
 <template>
