@@ -1,70 +1,92 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { ref } from 'vue';
+import { useTodoListStore } from '../stores/todoList.js';
+import { storeToRefs } from 'pinia';
 
-import Navbar from '@/components/Navbar.vue';
-import Product from '@/components/Product.vue';
-import ProductService from '@/services/ProductsService';
-// States
-const titulo = ref('Página Inicial');
-const cart = ref(0);
-const products = ref([]);
+const todo = ref('');
+const store = useTodoListStore();
 
-const productSoldEffect = ref(false);
+const { todoList } = storeToRefs(store);
+console.log(store);
 
-onMounted(() => {
-  ProductService.getProducts().then((response) => {
-    products.value = response.data;
-  });
-})
-
-watch(productSoldEffect, () => {
-  if (productSoldEffect.value) {
-    console.log("Produto vendido");
-    cart.value++;
-    productSoldEffect.value = false;
+const addTodoItem = () => {
+  if (todo.value !== '') {
+    store.addTodo(todo.value);
+    todo.value = '';
+    console.log(todoList.value);
   }
-});
+};
 
-function buyProduct(product) {
-  const index = products.value.findIndex(p => p.id === product.id);
-  products.value[index].qtd--;
-  productSoldEffect.value = true;
-}
+const deleteTodo = (id) => {
+  store.removeTodo(id);
+};
 
 </script>
 
 <template>
-  <div>
-    <header>
-      <Navbar page="home" />
-    </header>
-    <main>
-      <h1>{{ titulo }}</h1>
-      <br>
-      <div class="products">
-        <Product v-for="product in products" :key="product.id" :product="product" @buy="buyProduct" />
-      </div>
-      <br>
-      <p v-show="cart > 0">
-        Há {{ cart }} ítens em estoque
-      </p>
-    </main>
-  </div>
+  <main>
+    <div class="todoInput">
+      <input v-model="todo" type="text" name="">
+      <button @click="addTodoItem">Add</button>
+    </div>
+    <div class="todoList">
+      <ul>
+        <li v-for="item in todoList" :key="item.id">
+          {{ item.todo }}
+          <button @click="() => deleteTodo(item.id)">X</button>
+        </li>
+      </ul>
+    </div>
+  </main>
 </template>
 
-<style>
+<style scoped>
 main {
+  max-width: 600px;
+  margin: auto;
   margin-top: 50px;
   text-align: center;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  max-width: 800px;
-  margin: auto;
-  justify-items: center;
-  align-items: center;
-  gap: 20px;
+.todoInput {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
-</style>
+
+.todoInput input {
+  padding: 10px;
+  width: 70%;
+}
+
+.todoInput button {
+  padding: 10px;
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li {
+  width: 500px;
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  align-items: center;
+}
+
+li button {
+  padding: 5px;
+  color: #f44336;
+  border: none;
+}
+</style>../stores/todoList.js
