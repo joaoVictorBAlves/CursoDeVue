@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 
 import Navbar from '@/components/Navbar.vue';
 import Product from '@/components/Product.vue';

@@ -1,5 +1,7 @@
 <script setup>
 import { defineProps, computed } from 'vue';
+import { defineEmits } from 'vue';
+import { RouterLink } from 'vue-router';
 // Props
 const props = defineProps({
     product: Object
@@ -26,6 +28,11 @@ function handleClick() {
         <p>{{ product.description }}</p>
         <p>${{ product.price }}</p>
         <p>Quantity: {{ product.qtd }}</p>
+        <br>
+        <RouterLink v-if="product.qtd > 0" :to="{ name: 'productDetails', params: { id: product.id } }">
+            Veja mais
+        </RouterLink>
+        <br>
         <button v-if="product.qtd > 0" @click="handleClick">Buy</button>
     </div>
 </template>
@@ -57,5 +64,10 @@ button {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #1d5f1f;
 }
 </style>
