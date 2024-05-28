@@ -1,4 +1,6 @@
-![Group 64](https://github.com/joaoVictorBAlves/curso-react-tecdojo/assets/86852231/2172c753-9787-4736-a5ac-c5bb1b54e43d)
+![Group 64](https://github.com/joaoVictorBAlves/CursoDeVue/assets/86852231/39721bb7-6bc8-460c-8638-13201054d55c)
+
+
 
 Bem-vindo ao repositório do curso de Vue oferecido pelo TechDojo. Aqui você encontrará materiais e códigos das aulas para auxiliá-lo no aprendizado do framework Vue.js.
 
